@@ -21,6 +21,10 @@
 		634CD84D1E1AC9B900F11D01 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634CD84C1E1AC9B900F11D01 /* Detail.storyboard */; };
 		634CD84F1E1ACAA000F11D01 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634CD84E1E1ACAA000F11D01 /* DetailViewController.swift */; };
 		634CD8511E1ACB7A00F11D01 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634CD8501E1ACB7A00F11D01 /* Constants.swift */; };
+		634CD8531E1B090600F11D01 /* DetailCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634CD8521E1B090600F11D01 /* DetailCollectionCell.swift */; };
+		634CD8551E1B091E00F11D01 /* MainCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634CD8541E1B091E00F11D01 /* MainCollectionCell.swift */; };
+		634CD8571E1B147600F11D01 /* NYRAKeyboardAccessory.xib in Resources */ = {isa = PBXBuildFile; fileRef = 634CD8561E1B147600F11D01 /* NYRAKeyboardAccessory.xib */; };
+		634CD8591E1B173300F11D01 /* NYRAKeyboardAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634CD8581E1B173300F11D01 /* NYRAKeyboardAccessory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +66,10 @@
 		634CD84C1E1AC9B900F11D01 /* Detail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		634CD84E1E1ACAA000F11D01 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		634CD8501E1ACB7A00F11D01 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		634CD8521E1B090600F11D01 /* DetailCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCollectionCell.swift; sourceTree = "<group>"; };
+		634CD8541E1B091E00F11D01 /* MainCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionCell.swift; sourceTree = "<group>"; };
+		634CD8561E1B147600F11D01 /* NYRAKeyboardAccessory.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NYRAKeyboardAccessory.xib; sourceTree = "<group>"; };
+		634CD8581E1B173300F11D01 /* NYRAKeyboardAccessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NYRAKeyboardAccessory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +174,10 @@
 				634CD84C1E1AC9B900F11D01 /* Detail.storyboard */,
 				634CD8141E1AB18C00F11D01 /* Assets.xcassets */,
 				634CD8161E1AB18C00F11D01 /* LaunchScreen.storyboard */,
+				634CD8541E1B091E00F11D01 /* MainCollectionCell.swift */,
+				634CD8521E1B090600F11D01 /* DetailCollectionCell.swift */,
+				634CD8561E1B147600F11D01 /* NYRAKeyboardAccessory.xib */,
+				634CD8581E1B173300F11D01 /* NYRAKeyboardAccessory.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -319,6 +331,7 @@
 				634CD84D1E1AC9B900F11D01 /* Detail.storyboard in Resources */,
 				634CD8181E1AB18C00F11D01 /* LaunchScreen.storyboard in Resources */,
 				634CD8151E1AB18C00F11D01 /* Assets.xcassets in Resources */,
+				634CD8571E1B147600F11D01 /* NYRAKeyboardAccessory.xib in Resources */,
 				634CD8131E1AB18C00F11D01 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,9 +358,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				634CD83C1E1AB1E700F11D01 /* MainViewController.swift in Sources */,
+				634CD8591E1B173300F11D01 /* NYRAKeyboardAccessory.swift in Sources */,
 				634CD83E1E1AB22800F11D01 /* UIColor+Hint.swift in Sources */,
 				634CD80E1E1AB18C00F11D01 /* AppDelegate.swift in Sources */,
 				634CD84F1E1ACAA000F11D01 /* DetailViewController.swift in Sources */,
+				634CD8551E1B091E00F11D01 /* MainCollectionCell.swift in Sources */,
+				634CD8531E1B090600F11D01 /* DetailCollectionCell.swift in Sources */,
 				634CD8511E1ACB7A00F11D01 /* Constants.swift in Sources */,
 				634CD84B1E1AB60B00F11D01 /* Resolution.swift in Sources */,
 				634CD8481E1AB58500F11D01 /* CloudManager.swift in Sources */,
@@ -503,6 +519,7 @@
 				CODE_SIGN_ENTITLEMENTS = NYRA/NYRA.entitlements;
 				DEVELOPMENT_TEAM = 2RF92UCMKX;
 				INFOPLIST_FILE = NYRA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = NelsonJE.NYRA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -517,6 +534,7 @@
 				CODE_SIGN_ENTITLEMENTS = NYRA/NYRA.entitlements;
 				DEVELOPMENT_TEAM = 2RF92UCMKX;
 				INFOPLIST_FILE = NYRA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = NelsonJE.NYRA;
 				PRODUCT_NAME = "$(TARGET_NAME)";

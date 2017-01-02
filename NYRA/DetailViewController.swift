@@ -16,8 +16,20 @@ class DetailViewController: UIViewController {
     
     var resolutions = [Resolution]()
     
+    override func viewDidLoad() {
+        
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    @IBAction func closeAction(_ sender: UIButton, forEvent event: UIEvent) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func endEditing() {
+        self.view.endEditing(true)
     }
     
 }
@@ -33,11 +45,17 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailCell", for: indexPath) as! DetailCollectionCell
         
-        cell.layer.borderColor = UIColor.primrose().cgColor
-        cell.layer.borderWidth = 1
-        cell.layer.cornerRadius = 3.0
+        
+        let keyboardAccessory = Bundle.main.loadNibNamed("NYRAKeyboardAccessory", owner: nil, options: nil)?[0] as! NYRAKeyboardAccessory
+        keyboardAccessory.doneButton.addTarget(self, action: #selector(endEditing), for: .touchUpInside)
+        
+        cell.currentField.inputAccessoryView = keyboardAccessory
+        
+        cell.container.layer.borderColor = UIColor.primrose().cgColor
+        cell.container.layer.borderWidth = 1
+        cell.container.layer.cornerRadius = 3.0
         
         return cell
     }

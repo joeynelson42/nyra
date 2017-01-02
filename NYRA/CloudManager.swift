@@ -15,7 +15,9 @@ class CloudManager {
     let idLength = 20
     
     func fetchResolutions(completion: @escaping ([Resolution]) -> Void) {
-        let query = CKQuery(recordType: "Resolution", predicate: NSPredicate())
+
+        let pred = NSPredicate(value: true)
+        let query = CKQuery(recordType: "Resolution", predicate: pred)
         privateDB.perform(query, inZoneWith: nil, completionHandler: { records, error in
             if let _ = error {
                 print(error!)
@@ -33,7 +35,8 @@ class CloudManager {
                                         name: record["Name"] as! String,
                                         recurrence: record["Recurrence"] as! String,
                                         frequency: record["Frequency"] as! Int64,
-                                        notes: record["Notes"] as! String)
+                                        notes: record["Notes"] as! String,
+                                        current: record["Current"] as! Int64)
                 resolutions.append(fetchedRes)
             }
             

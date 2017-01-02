@@ -12,12 +12,24 @@ class MainViewController: UIViewController {
     
     var resolutions = [Resolution]()
     
+    override func viewDidLoad() {
+        CloudManager().fetchResolutions(completion: { resolutions in
+            print(resolutions)
+            
+            for resolution in resolutions {
+                print(resolution.getTotalGoal())
+            }
+        })
+        
+        
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
 }
 
-extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -41,5 +53,9 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         let vc = UIStoryboard(name: "Detail", bundle: nil).instantiateViewController(withIdentifier: "DetailVC")
         
         present(vc, animated: true, completion: nil)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: Constants.screenWidth - 60, height: 123)
     }
 }

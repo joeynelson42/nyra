@@ -50,7 +50,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="40" maxX="0.0" maxY="40"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCell" id="eHC-52-X28">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCell" id="eHC-52-X28" customClass="MainCollectionCell" customModule="NYRA" customModuleProvider="target">
                                         <rect key="frame" x="31" y="40" width="314" height="123"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -63,35 +63,41 @@
                                                     <color key="textColor" red="0.90851116180000002" green="0.84459227319999997" blue="0.58604848379999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbO-fb-Cwq">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbO-fb-Cwq" userLabel="upArrow">
                                                     <rect key="frame" x="256" y="65" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="79K-bX-3gW"/>
                                                         <constraint firstAttribute="height" constant="50" id="m41-z8-moE"/>
                                                     </constraints>
                                                     <state key="normal" image="UpArrow"/>
+                                                    <connections>
+                                                        <action selector="upAction:" destination="eHC-52-X28" eventType="touchUpInside" id="uhv-Re-NMv"/>
+                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRA-hC-qwp">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRA-hC-qwp" userLabel="downArrow">
                                                     <rect key="frame" x="8" y="65" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="Ke7-tz-o4q"/>
                                                         <constraint firstAttribute="width" constant="50" id="LHi-bP-iBb"/>
                                                     </constraints>
                                                     <state key="normal" image="DownArrow"/>
+                                                    <connections>
+                                                        <action selector="downAction:" destination="eHC-52-X28" eventType="touchUpInside" id="3xt-JS-yuP"/>
+                                                    </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2k-2A-Bo5">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="s2k-2A-Bo5">
                                                     <rect key="frame" x="154" y="79" width="6" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.90851116180000002" green="0.84459227319999997" blue="0.58604848379999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENT" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohb-Bc-TdX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENT" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ohb-Bc-TdX">
                                                     <rect key="frame" x="63" y="79" width="86" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.90851116180000002" green="0.84459227319999997" blue="0.58604848379999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="TOTAL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cw-yD-IrX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="TOTAL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9cw-yD-IrX">
                                                     <rect key="frame" x="165" y="79" width="86" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.90851116180000002" green="0.84459227319999997" blue="0.58604848379999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -128,6 +134,12 @@
                                             <constraint firstItem="wbO-fb-Cwq" firstAttribute="trailing" secondItem="eHC-52-X28" secondAttribute="trailingMargin" id="yTs-kW-Vjl"/>
                                             <constraint firstItem="BRA-hC-qwp" firstAttribute="bottom" secondItem="eHC-52-X28" secondAttribute="bottomMargin" id="z6B-hJ-5fQ"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="currentLabel" destination="Ohb-Bc-TdX" id="N1k-M6-XRK"/>
+                                            <outlet property="localGoalLabel" destination="9cw-yD-IrX" id="Rhi-dN-wlc"/>
+                                            <outlet property="nameLabel" destination="09Y-gP-J4u" id="WNt-pt-TWl"/>
+                                            <outlet property="progressBar" destination="xCP-Qr-215" id="9cr-Zp-9er"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
