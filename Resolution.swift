@@ -34,25 +34,23 @@ struct Resolution {
         self.current = Int(current)
     }
     
+    /// Returns the total number of times the action must be completed for the entire year
     func getTotalGoal() -> Int {
-        var total = 0
-        
         switch recurrence {
         case "daily":
-            total = frequency * 365
+            return frequency * 365
         case "weekly":
-            total = frequency * 52
+            return frequency * 52
         case "monthly":
-            total = frequency * 12
+            return frequency * 12
         case "yearly":
-            total = frequency
+            return frequency
         default:
-            total = 0
+            return 0
         }
-        
-        return total
     }
     
+    /// Returns the number of times the action should have been completed relative to the current date
     func getLocalGoal() -> Int {
         let date = Date()
         let cal = Calendar.current
