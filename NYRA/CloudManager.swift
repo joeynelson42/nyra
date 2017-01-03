@@ -44,7 +44,38 @@ class CloudManager {
         })
     }
     
-    func saveResolution(res: Resolution) {
+    func modifyResolution(res: Resolution, completion: @escaping () -> Void) {
+        privateDB.fetch(withRecordID: CKRecordID(recordName: res.id), completionHandler: { record, error in
+            if let _ = error {
+                print(error!)
+                return
+            }
+            
+            if let resRecord = record {
+                resRecord["Name"] = res.name as CKRecordValue
+                resRecord["ID"] = res.id as CKRecordValue
+                resRecord["Recurrence"] = res.recurrence as CKRecordValue
+                resRecord["Frequency"] = res.frequency as CKRecordValue
+                resRecord["Current"] = res.current as CKRecordValue
+                resRecord["Notes"] = res.notes as CKRecordValue
+                
+                self.privateDB.save(resRecord, completionHandler: { savedRecord, error in
+                    if let _ = error {
+                        print(error!)
+                        return
+                    }
+                    print("successfully saved resolution")
+                    
+                    completion()
+                })
+            }
+            
+            completion()
+        
+        })
+    }
+    
+    func saveResolution(res: Resolution, completion: @escaping () -> Void) {
         
         var id = ""
         
@@ -61,14 +92,18 @@ class CloudManager {
         resRecord["ID"] = id as CKRecordValue
         resRecord["Recurrence"] = res.recurrence as CKRecordValue
         resRecord["Frequency"] = res.frequency as CKRecordValue
+        resRecord["Current"] = res.current as CKRecordValue
+        resRecord["Notes"] = res.notes as CKRecordValue
+        
         
         privateDB.save(resRecord, completionHandler: { savedRecord, error in
             if let _ = error {
                 print(error!)
                 return
             }
-            
             print("successfully saved resolution")
+            
+            completion()
         })
     }
 

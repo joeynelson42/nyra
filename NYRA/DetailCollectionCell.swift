@@ -12,7 +12,9 @@ class DetailCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var currentField: UITextField!
-    @IBOutlet weak var localGoal: UILabel!
-    @IBOutlet weak var totalGoal: UILabel!
+    @IBOutlet weak var currentLabel: UITextField!
+    @IBOutlet weak var localGoalLabel: UILabel!
+    @IBOutlet weak var totalGoalLabel: UILabel!
+    @IBOutlet weak var downArrow: GHButton!
+    @IBOutlet weak var upArrow: GHButton!
 }
