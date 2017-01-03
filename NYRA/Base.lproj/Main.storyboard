@@ -137,6 +137,14 @@
                                                             <color key="textColor" red="0.90851116180000002" green="0.84459227319999997" blue="0.58604848379999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0Q-Rz-HBI">
+                                                            <rect key="frame" x="94" y="314.5" width="50" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="50" id="iWQ-4k-RcV"/>
+                                                                <constraint firstAttribute="height" constant="50" id="nSn-O8-PdL"/>
+                                                            </constraints>
+                                                            <state key="normal" image="trashCan"/>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.106599547" green="0.1096229926" blue="0.10964081439999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -151,8 +159,10 @@
                                                         <constraint firstItem="1rb-fS-w30" firstAttribute="centerX" secondItem="h0f-tw-DH0" secondAttribute="centerX" constant="-0.5" id="LQA-ge-76E"/>
                                                         <constraint firstItem="UsA-HX-3F6" firstAttribute="leading" secondItem="h0f-tw-DH0" secondAttribute="leading" constant="8" id="QpM-YG-RWP"/>
                                                         <constraint firstAttribute="trailing" secondItem="MjK-Zp-c94" secondAttribute="trailing" constant="8" id="SX4-Bs-3QX"/>
+                                                        <constraint firstItem="Y0Q-Rz-HBI" firstAttribute="top" secondItem="EW8-kJ-rp3" secondAttribute="bottom" constant="30" id="Sc0-8a-gYo"/>
                                                         <constraint firstItem="Am4-ew-bUH" firstAttribute="top" secondItem="h0f-tw-DH0" secondAttribute="top" id="V6O-qw-Mgy"/>
                                                         <constraint firstItem="UsA-HX-3F6" firstAttribute="centerY" secondItem="5fw-sr-R18" secondAttribute="centerY" id="Xrm-5j-BSY"/>
+                                                        <constraint firstItem="Y0Q-Rz-HBI" firstAttribute="centerX" secondItem="h0f-tw-DH0" secondAttribute="centerX" id="YoW-15-Vte"/>
                                                         <constraint firstAttribute="trailing" secondItem="EW8-kJ-rp3" secondAttribute="trailing" constant="8" id="Yqx-0a-UTf"/>
                                                         <constraint firstItem="3DY-Fw-MW1" firstAttribute="top" secondItem="Am4-ew-bUH" secondAttribute="bottom" constant="8" id="cIl-n2-uCH"/>
                                                         <constraint firstAttribute="trailing" secondItem="Am4-ew-bUH" secondAttribute="trailing" constant="8" id="glQ-nK-zVJ"/>
@@ -176,6 +186,7 @@
                                         <connections>
                                             <outlet property="container" destination="h0f-tw-DH0" id="FTu-u4-e5A"/>
                                             <outlet property="currentLabel" destination="5fw-sr-R18" id="hYJ-P8-gko"/>
+                                            <outlet property="deleteButton" destination="Y0Q-Rz-HBI" id="RFk-a2-6t6"/>
                                             <outlet property="downArrow" destination="UsA-HX-3F6" id="1Rx-5E-UMf"/>
                                             <outlet property="localGoalLabel" destination="9Eb-jX-Udt" id="USD-Fl-2eZ"/>
                                             <outlet property="nameLabel" destination="Am4-ew-bUH" id="dX9-ks-hEn"/>
@@ -209,7 +220,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aic-pq-C5V">
-                                <rect key="frame" x="162" y="612" width="50" height="50"/>
+                                <rect key="frame" x="162.5" y="612" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="KzF-fx-erI"/>
                                     <constraint firstAttribute="height" constant="50" id="QAv-67-6mn"/>
@@ -258,7 +269,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Jfa-ZX-mWd" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="d3T-Gt-lpC">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d3T-Gt-lpC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -276,6 +287,7 @@
         <image name="DownArrow" width="29" height="29"/>
         <image name="UpArrow" width="29" height="29"/>
         <image name="addIcon" width="34" height="34"/>
+        <image name="trashCan" width="39" height="40"/>
         <image name="xIcon" width="20" height="19"/>
     </resources>
 </document>

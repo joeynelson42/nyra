@@ -26,6 +26,7 @@
 		634CD85C1E1B278B00F11D01 /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634CD85B1E1B278B00F11D01 /* Create.storyboard */; };
 		634CD85E1E1B27A900F11D01 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634CD85D1E1B27A900F11D01 /* CreateViewController.swift */; };
 		634CD8601E1B285000F11D01 /* GHButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634CD85F1E1B285000F11D01 /* GHButton.swift */; };
+		63FC586E1E1C6F6B00CDEF32 /* appName.png in Resources */ = {isa = PBXBuildFile; fileRef = 63FC586D1E1C6F6B00CDEF32 /* appName.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		634CD85B1E1B278B00F11D01 /* Create.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Create.storyboard; sourceTree = "<group>"; };
 		634CD85D1E1B27A900F11D01 /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		634CD85F1E1B285000F11D01 /* GHButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHButton.swift; sourceTree = "<group>"; };
+		63FC586D1E1C6F6B00CDEF32 /* appName.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appName.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 		634CD85A1E1B275900F11D01 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				63FC586D1E1C6F6B00CDEF32 /* appName.png */,
 				634CD8161E1AB18C00F11D01 /* LaunchScreen.storyboard */,
 				634CD8561E1B147600F11D01 /* NYRAKeyboardAccessory.xib */,
 				634CD8581E1B173300F11D01 /* NYRAKeyboardAccessory.swift */,
@@ -343,6 +346,7 @@
 				634CD8151E1AB18C00F11D01 /* Assets.xcassets in Resources */,
 				634CD8571E1B147600F11D01 /* NYRAKeyboardAccessory.xib in Resources */,
 				634CD8131E1AB18C00F11D01 /* Main.storyboard in Resources */,
+				63FC586E1E1C6F6B00CDEF32 /* appName.png in Resources */,
 				634CD85C1E1B278B00F11D01 /* Create.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -34,6 +34,19 @@ class MainViewController: UIViewController {
         
         setupLayouts()
         
+        keyboardAccessory = Bundle.main.loadNibNamed("NYRAKeyboardAccessory", owner: nil, options: nil)?[0] as! NYRAKeyboardAccessory
+        keyboardAccessory.doneButton.addTarget(self, action: #selector(endEditing), for: .touchUpInside)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        syncCloud()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    func syncCloud() {
         CloudManager().fetchResolutions(completion: { fetchedResolutions in
             self.resolutions = fetchedResolutions
             
@@ -41,13 +54,6 @@ class MainViewController: UIViewController {
                 self.mainCollection.reloadData()
             }
         })
-        
-        keyboardAccessory = Bundle.main.loadNibNamed("NYRAKeyboardAccessory", owner: nil, options: nil)?[0] as! NYRAKeyboardAccessory
-        keyboardAccessory.doneButton.addTarget(self, action: #selector(endEditing), for: .touchUpInside)
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
     }
     
     func setupLayouts() {
@@ -74,9 +80,12 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func closeAction(_ sender: Any) {
-        mainCollection.setCollectionViewLayout(mainLayout, animated: true)
-        mainCollection.isPagingEnabled = false
-        UIView.animate(withDuration: 0.25, animations: { self.closeButton.alpha = 0 })
+        if detailViewEnabled {
+            detailViewEnabled = false
+            mainCollection.setCollectionViewLayout(mainLayout, animated: true)
+            mainCollection.isPagingEnabled = false
+            UIView.animate(withDuration: 0.25, animations: { self.closeButton.alpha = 0 })
+        }
     }
 }
 
@@ -116,14 +125,15 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.currentLabel.delegate = self
         cell.currentLabel.tag = indexPath.row
         
+        cell.deleteButton.addTarget(self, action: #selector(deleteAction(_:)), for: .touchUpInside)
+        cell.deleteButton.tag = indexPath.row
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-        detailViewEnabled = !detailViewEnabled
-
-        if detailViewEnabled {
+        if !detailViewEnabled {
+            detailViewEnabled = true
             collectionView.setCollectionViewLayout(detailLayout, animated: true)
             collectionView.isPagingEnabled = true
             UIView.animate(withDuration: 0.25, animations: { self.closeButton.alpha = 1 })
@@ -133,7 +143,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if detailViewEnabled {
-            return CGSize(width: Constants.screenWidth, height: Constants.screenHeight - 150)
+            return CGSize(width: Constants.screenWidth, height: 418)
         } else {
             return CGSize(width: Constants.screenWidth, height: 165)
         }
@@ -146,6 +156,15 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         resolution.current = current
         CloudManager().modifyResolution(res: resolution, completion: {
             print("saved!")
+        })
+    }
+    
+    func deleteAction(_ sender: UIButton) {
+        let resolution = resolutions[sender.tag]
+        resolutions.remove(at: sender.tag)
+        mainCollection.reloadData()
+        CloudManager().deleteResolution(res: resolution, completion: {
+            self.syncCloud()
         })
     }
     
@@ -175,7 +194,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func fireTimer(res: Resolution) {
-        saveTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: {void in
+        saveTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: {void in
             self.saveChanges(res: res)
         })
     }

@@ -17,4 +17,5 @@ class DetailCollectionCell: UICollectionViewCell {
     @IBOutlet weak var totalGoalLabel: UILabel!
     @IBOutlet weak var downArrow: GHButton!
     @IBOutlet weak var upArrow: GHButton!
+    @IBOutlet weak var deleteButton: UIButton!
 }

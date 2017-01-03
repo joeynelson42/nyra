@@ -107,8 +107,30 @@ class CloudManager {
         })
     }
 
-    func deleteResolution(res: Resolution) {
+    func deleteResolution(res: Resolution, completion: @escaping () -> Void) {
         //use res.id to find CKRecord to delete
+        
+        privateDB.fetch(withRecordID: CKRecordID(recordName: res.id), completionHandler: { record, error in
+            if let _ = error {
+                print(error!)
+                return
+            }
+            
+            if let resRecord = record {
+                let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [resRecord.recordID])
+                
+                operation.savePolicy = .allKeys
+                operation.modifyRecordsCompletionBlock = { added, deleted, error in
+                    if error != nil {
+                        print(error!)
+                    } else {
+                        completion()
+                        print("successfully deleted record")
+                    }
+                }
+                self.privateDB.add(operation)
+            }
+        })
     }
     
     

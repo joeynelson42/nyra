@@ -30,6 +30,17 @@ class CreateViewController: UIViewController, CreateTableViewDelegate {
     
     @IBAction func saveAction(_ sender: UIButton) {
         
+        if resolution.name == "" {
+            showIncompleteAlert(message: "Your resolution needs a name.")
+            return
+        } else if resolution.recurrence == "" {
+            showIncompleteAlert(message: "Decide whether you'll do this daily, weekly, monthly or yearly.")
+            return
+        } else if resolution.frequency == 0 {
+            showIncompleteAlert(message: "Set how often you'll do this.")
+            return
+        }
+        
         resolution.notes = ""
         resolution.current = 0
         
@@ -55,6 +66,16 @@ class CreateViewController: UIViewController, CreateTableViewDelegate {
     
     func setNew(recurrence: String) {
         resolution.recurrence = recurrence
+    }
+    
+    func showIncompleteAlert(message: String) {
+        let actionSheetController: UIAlertController = UIAlertController(title: "Almost!", message: message, preferredStyle: .alert)
+        
+        let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default)
+        
+        actionSheetController.addAction(okAction)
+        
+        self.present(actionSheetController, animated: true, completion: nil)
     }
 }
 
